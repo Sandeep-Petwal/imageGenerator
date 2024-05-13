@@ -1,9 +1,11 @@
 // const apiKey = "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";
 const apiKey =    "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"; // my api tocken
+// const apiKey =    "hf_pnqnOZbndoIXBirbivAgnytJtIYi"; // my api tocken
 
 const generateForm = document.querySelector(".generate-form");
 const generateBtn = generateForm.querySelector(".generate-btn");
 const imageGallery = document.querySelector(".image-gallery");
+const title = document.querySelector("title");
 
 let isImageGenerating = false;
 
@@ -16,6 +18,7 @@ function getRandomNumber(min, max) {
 function failed() {
   imageGallery.innerHTML = '<div class="img-card"><img src="images/img-1.jpg" alt="image"></div><div class="img-card"><img src="images/img-2.jpg" alt="image"></div><div class="img-card"><img src="images/img-3.jpg" alt="image"></div><div class="img-card"><img src="images/img-4.jpg" alt="image"></div><div class="img-card"><img src="images/img-5.jpg" alt="image"></div><div class="img-card"><img src="images/img-6.jpg" alt="image"></div><div class="img-card"><img src="images/img-7.jpg" alt="image"></div><div class="img-card"><img src="images/img-8.jpg" alt="image"></div>';
   isImageGenerating = false;
+  title.innerHTML = "Try again !"
   alert("Failed to generate image!");
 }
 
@@ -65,6 +68,8 @@ const generateImage = async (promptt, number_img) => {
     let image_name = `${prompt}_${i}`;
 
     //following code will run for every image
+    title.innerHTML = "AI Image Generator"
+
     console.log(imgUrl);
     let img = document.querySelector(`.generated_img_${i + 1}`);
     img.src = imgUrl;
@@ -126,6 +131,7 @@ const handleImageGeneration = (e) => {
 
   for (let i = 0; i < number_img; i++) {
     //creating image
+    title.innerHTML = "Loading..."
     let img = document.createElement("img");
     img.src = "images/loading.gif";
     img.setAttribute("alt", `image_${i + 1}_of_${prompt}`);
