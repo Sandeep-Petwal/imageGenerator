@@ -1,6 +1,5 @@
-// const apiKey = "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";
-const apiKey = "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"; // my api tocken
-// const apiKey =    "hf_pnqnOZbndoIXBirbivAgnytJtIYi"; // wrong api tocken
+alert("Please enter a api key");
+// const apiKey = "hf_pnqnOZbndoIXBirbivAgnytJtIYi";
 
 const generateForm = document.querySelector(".generate-form");
 const generateBtn = generateForm.querySelector(".generate-btn");
